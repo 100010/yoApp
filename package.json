@@ -13,6 +13,10 @@
     "redux-saga": "^0.15.0"
   },
   "devDependencies": {
+    "babel-eslint": "^8.0.1",
+    "babel-preset-react-native": "4.0.0",
+    "eslint": "^4.2.0",
+    "eslint-plugin-react": "^7.1.0",
     "babel-jest": "22.4.3",
     "babel-preset-react-native": "4.0.0",
     "jest": "22.4.3",

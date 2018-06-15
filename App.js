@@ -1,5 +1,6 @@
 import React from 'react';
 import AppContainer from './app/screens/AppContainer';
+import configStore from './app/store';
 import { Provider } from 'react-redux';
 
 //redux infrastructure
@@ -7,8 +8,11 @@ import { Provider } from 'react-redux';
 
 export default class App extends React.Component {
   render() {
+    console.log('aaaa');
     return (
-      <AppContainer/>
+      <Provider store={configStore.store}>
+        <AppContainer/>
+      </Provider>
     );
   }
 }

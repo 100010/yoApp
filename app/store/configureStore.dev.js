@@ -1,17 +1,17 @@
-// import { applyMiddleware, createStore, compose } from 'redux';
+import { applyMiddleware, createStore, compose } from 'redux';
 // import thunk from 'redux-thunk';
-// import { persistStore } from 'redux-persist';
+import { persistStore } from 'redux-persist';
 //
-// import reducers from '../reducers';
+import reducers from '../reducers';
 //
 // // START For DEV
-// import Reactotron from 'reactotron-react-native';
-// import { reactotronRedux } from 'reactotron-redux';
+import Reactotron from 'reactotron-react-native';
+import { reactotronRedux } from 'reactotron-redux';
 //
-// Reactotron
-//   .configure({ name: 'Ikinari' })
-//   .use(reactotronRedux())
-//   .connect();
+Reactotron
+  .configure({ name: 'yoApp' })
+  .use(reactotronRedux())
+  .connect();
 // // END For DEV
 //
 // export default function configureStore(initialState = {}) {
@@ -33,3 +33,21 @@
 //
 //   return { persistor, store };
 // };
+
+export default function configStore(initialState = {}) {
+  const middleware = [];
+
+  const enhancer = compose(
+    applyMiddleware(...middleware)
+  );
+
+  const store = Reactotron.createStore(
+    reducers,
+    initialState,
+    enhancer
+  );
+
+  const persistor = persistStore(store);
+
+  return { persistor, store };
+}

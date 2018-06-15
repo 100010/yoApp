@@ -1,6 +1,5 @@
 // import Config from '../config';
-import devConfigStore from './configureStore.dev';
 
-const configStore = devConfigStore.default;
+const configStore = require('./configureStore.dev').default;
 
 export default configStore();
